@@ -12,6 +12,7 @@
         "xstring": "cpp",
         "map": "cpp",
         "utility": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "list": "cpp"
     }
 }
