@@ -8,7 +8,7 @@ using namespace std;
 
 // Задача 1: Использование перечислений для выбора страны
 enum Country {
-    USA, Canada, Mexico, Brazil, Germany, France, Japan, India, China, Russia
+    USA = 1, Canada, Mexico, Brazil, Germany, France, Japan, India, China, Russia
 };
 
 // Функция task1: Демонстрация работы с перечислением стран
@@ -20,16 +20,16 @@ void task1() {
 
     // Используем switch, чтобы в зависимости от выбора пользователя вывести страну
     switch (choice) {
-    case 1: cout << "USA"; break;
-    case 2: cout << "Canada"; break;
-    case 3: cout << "Mexico"; break;
-    case 4: cout << "Brazil"; break;
-    case 5: cout << "Germany"; break;
-    case 6: cout << "France"; break;
-    case 7: cout << "Japan"; break;
-    case 8: cout << "India"; break;
-    case 9: cout << "China"; break;
-    case 10: cout << "Russia"; break;
+    case USA: cout << "USA"; break;
+    case Canada: cout << "Canada"; break;
+    case Mexico: cout << "Mexico"; break;
+    case Brazil: cout << "Brazil"; break;
+    case Germany: cout << "Germany"; break;
+    case France: cout << "France"; break;
+    case Japan: cout << "Japan"; break;
+    case India: cout << "India"; break;
+    case China: cout << "China"; break;
+    case Russia: cout << "Russia"; break;
     default: cout << "Invalid choice"; break; // Если выбор не соответствует ни одному из случаев
     }
     cout << endl;
