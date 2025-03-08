@@ -13,6 +13,8 @@
         "map": "cpp",
         "utility": "cpp",
         "deque": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "filesystem": "cpp",
+        "xiosbase": "cpp"
     }
 }
