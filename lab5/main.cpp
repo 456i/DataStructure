@@ -76,49 +76,6 @@ void AdditionalTask1() {
     }
 }
 
-
-void AdditionalTask2() {
-    string filename = "task1.bin";
-    vector<char> search = { 'a', 'b', 'c' }; // Что ищем
-    vector<char> replace = { 'x', 'y', 'z' }; // На что заменяем
-
-    // 1. Открытие файла для чтения
-    ifstream file(filename);
-    if (!file) {
-        cerr << "Failed to open the file!" << endl;
-        return;
-    }
-
-    // 2. Чтение всего содержимого файла в вектор
-    vector<char> content((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
-    file.close();
-
-    // 3. Поиск и замена всех вхождений
-    size_t pos = 0;
-    while (true) {
-        // Поиск подпоследовательности начиная с позиции pos
-        auto it = search(content.begin() + pos, content.end(), search.begin(), search.end());
-
-        // Если не нашли - выходим из цикла
-        if (it == content.end()) break;
-
-        // Вычисляем позицию найденной последовательности
-        pos = it - content.begin();
-
-        // Заменяем найденную последовательность
-        copy(replace.begin(), replace.end(), content.begin() + pos);
-
-        // Перемещаем позицию поиска вперед на длину замененной последовательности
-        pos += replace.size();
-    }
-
-    // 4. Перезапись файла с измененным содержимым
-    ofstream outFile(filename);
-    outFile.write(content.data(), content.size());
-    outFile.close();
-}
-
-
 void AdditionalTask3() {
     string filename = "task1.bin";
 
@@ -152,7 +109,7 @@ void AdditionalTask3() {
 
 int main() {
     int task_number;
-    cout << "Enter the task number (1-7): ";
+    cout << "Enter the task number (1-6): ";
     cin >> task_number;
 
     switch (task_number) {
@@ -172,37 +129,10 @@ int main() {
         AdditionalTask1();
         break;
     case 6:
-        AdditionalTask2();
-        break;
-    case 7:
         AdditionalTask3();
         break;
     default:
         cout << "Invalid task number!" << endl;
-    }
-
-    return 0;
-}
-
-
-
-#include <iostream>
-#include <fstream>
-#include <string>
-using namespace std;
-
-int main() {
-    ifstream file("example.txt");
-    string line;
-
-    if (file.is_open()) {
-        while (getline(file, line)) {
-            cout << line << endl;
-        }
-        file.close();
-    }
-    else {
-        cout << "Ошибка открытия файла" << endl;
     }
 
     return 0;

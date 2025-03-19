@@ -1,47 +1,193 @@
 #include <iostream>
-#include <functional>
+#include <vector>
 
 using namespace std;
 
+void command1_1_1() { cout << "Executed command1_1_1" << endl; }
+void command1_1_2() { cout << "Executed command1_1_2" << endl; }
+void command1_2_1() { cout << "Executed command1_2_1" << endl; }
+void command1_2_2() { cout << "Executed command1_2_2" << endl; }
+void command2_1_1() { cout << "Executed command2_1_1" << endl; }
+void command2_1_2() { cout << "Executed command2_1_2" << endl; }
+void command2_2_1() { cout << "Executed command2_2_1" << endl; }
+void command2_2_2() { cout << "Executed command2_2_2" << endl; }
 
-double add(double a, double b) { return a + b; }
-double subtract(double a, double b) { return a - b; }
-double multiply(double a, double b) { return a * b; }
-double divide(double a, double b) {
-    if (b != 0) return a / b;
-    cout << "Ошибка: деление на ноль!" << endl;
-    return 0;
+void command1_1(vector<int>& keys) {
+    cout << "Chosen command1_1" << endl;
+
+    cout << "\n\n";
+    for (int key : keys)
+        cout << key << " ";
+    cout << "\n\n";
+
+    int keyLevel3;
+    while (true) {
+        cout << "1: command1_1_1\n2: command1_1_2\n0: Back\nEnter: ";
+        cin >> keyLevel3;
+        if (keyLevel3 == 0) return;
+
+        keys[2] = keyLevel3;
+        switch (keyLevel3) {
+        case 1: command1_1_1(); break;
+        case 2: command1_1_2(); break;
+        default: cout << "Invalid command!" << endl;
+        }
+    }
+}
+
+void command1_2(vector<int>& keys) {
+    cout << "Chosen command1_2" << endl;
+
+    cout << "\n\n";
+    for (int key : keys)
+        cout << key << " ";
+    cout << "\n\n";
+
+    int keyLevel3;
+    while (true) {
+        cout << "1: command1_2_1\n2: command1_2_2\n0: Back\nEnter: ";
+        cin >> keyLevel3;
+        if (keyLevel3 == 0) return;
+
+        keys[2] = keyLevel3;
+        switch (keyLevel3) {
+        case 1: command1_2_1(); break;
+        case 2: command1_2_2(); break;
+        default: cout << "Invalid command!" << endl;
+        }
+    }
+}
+
+void command2_1(vector<int>& keys) {
+    cout << "Chosen command2_1" << endl;
+
+    cout << "\n\n";
+    for (int key : keys)
+        cout << key << " ";
+    cout << "\n\n";
+
+    int keyLevel3;
+    while (true) {
+        cout << "1: command2_1_1\n2: command2_1_2\n0: Back\nEnter: ";
+        cin >> keyLevel3;
+        if (keyLevel3 == 0) return;
+
+        keys[2] = keyLevel3;
+        switch (keyLevel3) {
+        case 1:
+            command2_1_1();
+            cout << "\n\n";
+            for (int key : keys)
+                cout << key << " ";
+            cout << "\n\n";break;
+        case 2:
+            command2_1_2();
+            cout << "\n\n";
+            for (int key : keys)
+                cout << key << " ";
+            cout << "\n\n";break;
+        default: cout << "Invalid command!" << endl;
+        }
+    }
+}
+
+void command2_2(vector<int>& keys) {
+    cout << "Chosen command2_2" << endl;
+
+    cout << "\n\n";
+    for (int key : keys)
+        cout << key << " ";
+    cout << "\n\n";
+
+    int keyLevel3;
+    while (true) {
+        cout << "1: command2_2_1\n2: command2_2_2\n0: Back\nEnter: ";
+        cin >> keyLevel3;
+        if (keyLevel3 == 0) return;
+
+        keys[2] = keyLevel3;
+        switch (keyLevel3) {
+        case 1:
+            command2_2_1();
+            cout << "\n\n";
+            for (int key : keys)
+                cout << key << " ";
+            cout << "\n\n";break;
+
+        case 2:
+            command2_2_2();
+            cout << "\n\n";
+            for (int key : keys)
+                cout << key << " ";
+            cout << "\n\n"; break;
+        default: cout << "Invalid command!" << endl;
+        }
+    }
+}
+
+void command1(vector<int>& keys) {
+    cout << "Chosen command1" << endl;
+
+    cout << "\n\n";
+    for (int key : keys)
+        cout << key << " ";
+    cout << "\n\n";
+
+    int keyLevel2;
+    while (true) {
+        cout << "1: command1_1\n2: command1_2\n0: Back\nEnter: ";
+        cin >> keyLevel2;
+        if (keyLevel2 == 0) return;
+
+        keys[1] = keyLevel2;
+        switch (keyLevel2) {
+        case 1: command1_1(keys); break;
+        case 2: command1_2(keys); break;
+        default: cout << "Invalid command!" << endl;
+        }
+    }
+}
+
+void command2(vector<int>& keys) {
+    cout << "Chosen command2" << endl;
+
+    cout << "\n\n";
+    for (int key : keys)
+        cout << key << " ";
+    cout << "\n\n";
+
+    int keyLevel2;
+    while (true) {
+        cout << "1: command2_1\n2: command2_2\n0: Back\nEnter: ";
+        cin >> keyLevel2;
+        if (keyLevel2 == 0) return;
+
+        keys[1] = keyLevel2;
+        switch (keyLevel2) {
+        case 1: command2_1(keys); break;
+        case 2: command2_2(keys); break;
+        default: cout << "Invalid command!" << endl;
+        }
+    }
 }
 
 int main() {
-    setlocale(LC_ALL, "rus");
-    function<double(double, double)> operations[4] = { add, subtract, multiply, divide };
+    vector<int> keys = { 0, 0, 0 };
 
-    int choice;
-    double num1, num2;
+    int keyLevel1;
+    while (true) {
+        cout << "Main Menu:\n1: command1\n2: command2\n0: Exit\nEnter: ";
+        cin >> keyLevel1;
+        if (keyLevel1 == 0) break;
 
-    do {
-        cout << "\nМеню:" << endl;
-        cout << "1. Сложение" << endl;
-        cout << "2. Вычитание" << endl;
-        cout << "3. Умножение" << endl;
-        cout << "4. Деление" << endl;
-        cout << "5. Выход" << endl;
-        cout << "Введите ваш выбор: ";
-        cin >> choice;
-
-        if (choice >= 1 && choice <= 4) {
-            cout << "Введите два числа: ";
-            cin >> num1 >> num2;
-            cout << "Результат: " << operations[choice - 1](num1, num2) << endl;
+        keys[0] = keyLevel1;
+        switch (keyLevel1) {
+        case 1: command1(keys); break;
+        case 2: command2(keys); break;
+        default: cout << "Invalid command!" << endl;
         }
-        else if (choice == 5) {
-            cout << "Выход из программы..." << endl;
-        }
-        else {
-            cout << "Неправильный выбор!" << endl;
-        }
-    } while (choice != 5);
+    }
 
+    cout << "Exiting program..." << endl;
     return 0;
 }
