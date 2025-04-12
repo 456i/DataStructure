@@ -1,0 +1,5 @@
+1 Mike 3 Math Physics Chemistry
+2 Alice 2 History Geography
+3 Bob 4 English Literature Philosophy Psychology
+4 Carol 2 Biology Chemistry
+5 Dave 3 ComputerScience Math Statistics

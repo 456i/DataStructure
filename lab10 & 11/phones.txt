@@ -1,0 +1,8 @@
+1 iPhone15 800
+2 SamsungGalaxy 750
+3 GooglePixel 700
+4 XiaomiRedmi 400
+5 OnePlus8 650
+6 HuaweiP40 700
+7 SonyXperia 600.242
+8 LGV60 550.434
